@@ -4,6 +4,11 @@ import ChatInput from "@/components/ChatInput";
 import { askGroq } from "@/services/groq";
 import { v4 as uuidv4 } from "uuid";
 import { Helmet } from "react-helmet";
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+
 
 type Msg = {
     id: string;
@@ -15,6 +20,7 @@ type Msg = {
 const STORAGE_KEY = "chat_history_v1";
 
 const ChatbotPage: React.FC = () => {
+    const navigate = useNavigate()
     const [messages, setMessages] = useState<Msg[]>(() => {
         try {
             const raw = localStorage.getItem(STORAGE_KEY);
@@ -80,6 +86,16 @@ const ChatbotPage: React.FC = () => {
 
             <header className="p-4 border-b bg-card">
                 <div className="max-w-4xl mx-auto flex items-center justify-between">
+                    {/* Tombol back */}
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => navigate(-1)}
+                        aria-label="Kembali"
+                    >
+                        <ArrowLeft className="w-5 h-5" />
+                    </Button>
+
                     <h1 className="text-lg font-semibold">Asisten Al-Qur'an</h1>
                     <button onClick={clearHistory} className="text-sm text-destructive hover:underline">
                         Hapus Riwayat
