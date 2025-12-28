@@ -9,9 +9,11 @@ export async function askGroq(message: string): Promise<string> {
 
   if (!res.ok) {
     const txt = await res.text();
-    throw new Error(txt);
+    throw new Error(txt || "Server error");
   }
 
   const body = await res.json();
+
+  // 🔥 INI YANG PALING PENTING
   return body.reply;
 }
