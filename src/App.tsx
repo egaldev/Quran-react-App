@@ -6,6 +6,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Surah from "./pages/Surah";
 import NotFound from "./pages/NotFound";
+import Doa from "./pages/Doa";
+import ChatbotPage from "./pages/Chatbot.jsx";
+
+
 
 const queryClient = new QueryClient();
 
@@ -18,7 +22,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/surah/:nomor" element={<Surah />} />
+          <Route path="/doa" element={<Doa />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/chat" element={<ChatbotPage />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

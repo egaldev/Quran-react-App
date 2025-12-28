@@ -27,7 +27,7 @@ const Navbar = ({ onOpenModal }: { onOpenModal?: () => void }) => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-sm">
+    <nav className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-sm mb-16">
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center gap-3 group">
@@ -41,6 +41,25 @@ const Navbar = ({ onOpenModal }: { onOpenModal?: () => void }) => {
           </Link>
 
           <div className="flex items-center gap-2">
+            {/* 🔥 Tombol Doa-Doa */}
+            <Link to="/doa">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="gap-2 hover:bg-muted"
+              >
+                <BookOpen className="h-4 w-4" />
+                <span className="hidden sm:inline">Doa-Doa</span>
+              </Button>
+            </Link>
+
+            {/* Tombol chatBot */}
+            <Link to="/chat">
+              <Button variant="ghost" size="sm">Chat</Button>
+            </Link>
+
+
+            {/* Tombol Kelompok */}
             <Button
               variant="ghost"
               size="sm"
@@ -50,6 +69,8 @@ const Navbar = ({ onOpenModal }: { onOpenModal?: () => void }) => {
               <Users className="h-4 w-4" />
               <span className="hidden sm:inline">Kelompok</span>
             </Button>
+
+            {/* Tombol Dark Mode */}
             <Button
               variant="ghost"
               size="icon"
